@@ -59,7 +59,7 @@ def export_attendees_csv(attendees, custom_forms):
     for attendee in attendees:
         column = [
             str(attendee.order.get_invoice_number()) if attendee.order else '-',
-            str(attendee.order.created_at)
+            str(attendee.order.created_at.strftime('%B %-d, %Y %H:%M %z'))
             if attendee.order and attendee.order.created_at
             else '-',
             str(attendee.order.status)
